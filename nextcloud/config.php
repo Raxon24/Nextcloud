@@ -1,3 +1,12 @@
 'memcache.local' => '\OC\Memcache\APCu',
 'memcache.distributed' => '\OC\Memcache\Memcached',
 'memcache.locking' => '\OC\Memcache\Memcached',
+'filelocking.enabled' => 'true',
+'memcache.locking' => '\OC\Memcache\Redis',
+'redis' => [
+     'host'     => '/var/run/redis/redis.sock',
+     'port'     => 0,
+     'dbindex'  => 0,
+     'password' => '',
+     'timeout'  => 1.5,
+],
