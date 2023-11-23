@@ -11,8 +11,8 @@
 
 Set web Login access credential
       
-      export NC_WEB_ADMIN_USER = replace_for_web_admin_user
-      export NC_WEB_ADMIN_PASS = you_web_admin_password
+      export NC_WEB_ADMIN_USER=replace_for_web_admin_user
+      export NC_WEB_ADMIN_PASS=you_web_admin_password
   
 
  Create DB options 2
