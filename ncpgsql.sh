@@ -65,8 +65,9 @@ sudo usermod -a -G redis www-data
 #exit
 
 # Setup postgresql db
-#sudo -i -u postgres psql -c "CREATE USER nextcloud WITH PASSWORD 'nextcloud';"
-#sudo -i -u postgres psql -c "CREATE DATABASE nextcloud OWNER nextcloud;"
+sudo -i -u postgres psql -c "CREATE USER nextcloud WITH PASSWORD 'nextcloud';"
+sudo -i -u postgres psql -c "CREATE DATABASE nextcloud OWNER nextcloud;"
+sudo -i -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE nextcloud TO nextcloud;"
 sudo -u postgres psql
 
 ## Download Nextcloud latest release
