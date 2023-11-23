@@ -3,19 +3,16 @@
 # Install Required Packages
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo add-apt-repository ppa:ondrej/php
+#sudo add-apt-repository ppa:ondrej/php
 sudo apt update
-sudo apt-get install -y software-properties-common curl nano git tuf htop btop lsb-release apt-transport-https ca-certificates
+sudo apt-get install -y software-properties-common curl git tuf htop btop lsb-release apt-transport-https ca-certificates
 sudo apt-get install -y apache2 php8.2-fpm
 sudo apt-get install -y redis-server
 sudo apt-get install -y memcached 
 sleep 5
-sudo apt-get install -y libapache2-mod-php php-mysql php-pgsql php-redis imagemagick php-imagick memcached libmemcached-tools php-memcached php-apcu php-gd php-curl php-mbstring php-intl php-gmp php-bcmath php-xml php-bz2 php-zip php-ctype php-dom php-json php-posix zip unzip smbclient python3-certbot-apache
+sudo apt-get install -y libapache2-mod-php php-pgsql php-redis imagemagick php-imagick memcached libmemcached-tools php-memcached php-apcu php-gd php-curl php-mbstring php-intl php-gmp php-bcmath php-xml php-bz2 php-zip php-ctype php-dom php-json php-posix zip unzip smbclient python3-certbot-apache
 
 # enable services
-#sudo systemctl enable mariadb && sudo systemctl start mariadb && sudo systemctl status mariadb
-#sudo systemctl enable postgresql && sudo systemctl start postgresql && sudo systemctl status postgresql
-sleep 5
 sudo systemctl enable apache2 && sudo systemctl start apache2 && sudo systemctl status apache2
 sleep 5
 sudo systemctl enable memcached && sudo systemctl start memcached && sudo systemctl status memcached
@@ -40,6 +37,8 @@ sudo a2dismod mpm_prefork
 sudo systemctl reload apache2 && sudo systemctl restart apache2
 sudo systemctl restart memcached
 sudo systemctl restart php8.2-fpm
+sleep 5
+sudo apt-get update
 
 #  Set UP APCu 
 sudo mv /etc/php/8.2/fpm/conf.d/20-apcu.ini /etc/php/8.2/fpm/conf.d/20-apcu.ini.BAK
@@ -60,24 +59,20 @@ sudo wget https://raw.githubusercontent.com/Raxon24/Nextcloud/main/redis.conf -P
 #sudo sed -i 's/# port 0/port 0/' /etc/redis/redis.conf
 #sudo sed -i '155,156 s/^#//' /etc/redis/redis.conf
 sudo usermod -a -G redis www-data
+sudo apt-get update  
+sudo systemctl restart redis-server
 
-# setup MariaDB db
-#mysql -U
-
-#CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
-#CREATE DATABASE IF NOT EXISTS nextcloud CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-#GRANT ALL PRIVILEGES ON nextcloud.* TO 'username'@'localhost';
-#FLUSH PRIVILEGES;
-#exit
+# Setup Databases
 sudo apt-get -y install postgreql
-sudo systemctl enable postgresql && sudo systemctl start postgresql && sudo systemctl status postgresql
+sudo systemctl enable postgresql
 psql --version
 sleep 5
 # Setup postgresql db
-sudo -u postgres psql -c "CREATE USER \"$NC_DBUSER\" WITH ENCRYPTED PASSWORD '$NC_DBPASS'"
-sudo -u postgres createdb -O $NC_DBUSER $NC_DBNAME
-sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE $NC_DBNAME TO $NC_DBUSER;"
+sudo -i -u postgres psql -c "CREATE USER \"$NC_DBUSER\" WITH ENCRYPTED PASSWORD '$NC_DBPASS'"
+sudo -i -u postgres createdb -O $NC_DBUSER $NC_DBNAME
+sudo -i -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE $NC_DBNAME TO $NC_DBUSER;"
 #sudo -u postgres psql
+sudo systemctl restart postgresql && sudo systemctl status postgresql
 
 ## Download Nextcloud latest release
 sudo wget https://download.nextcloud.com/server/releases/latest.tar.bz2 -P /var/www/
@@ -87,7 +82,7 @@ sudo chown -R www-data:www-data /var/www/
 cat << EOF >> /var/www/nextcloud/info.php
 <?php phpinfo(); ?>
 EOF
-
+sleep 5  
 # cd /var/www/nextcloud
 sudo -u www-data php occ  maintenance:install --database \
 "pgsql" --database-name "$NC_DBNAME"  --database-user "$NC_DBUSER" --database-pass \
@@ -100,12 +95,4 @@ sudo systemctl restart php8.2-fpm
 sudo systemctl restart postgresql
 sudo systemctl restart redis-server
 sleep 5
-
 sudo nano /var/www/nextcloud/config/config.php
-
-
-rm ncpgsql.sh
-
-
-
-
