@@ -63,7 +63,7 @@ sudo apt-get update
 sudo systemctl restart redis-server
 
 # Setup Databases
-sudo apt-get -y install postgreql
+sudo apt-get -y install postgresql
 sudo systemctl enable postgresql
 psql --version
 sleep 5
