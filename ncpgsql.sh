@@ -10,7 +10,7 @@ sudo apt-get install -y apache2 php8.2-fpm
 sudo apt-get install -y redis-server
 sudo apt-get install -y memcached 
 sleep 5
-sudo apt-get install -y libapache2-mod-php php-mysql php-pgsql php-pdo_pgsql php-redis imagemagick php-imagick memcached libmemcached-tools php-memcached php-apcu php-gd php-curl php-mbstring php-intl php-gmp php-bcmath php-xml php-bz2 php-zip php-ctype php-dom php-json php-posix zip unzip apc.enable_cli smbclient python3-certbot-apache
+sudo apt-get install -y libapache2-mod-php php-mysql php-pgsql php-redis imagemagick php-imagick memcached libmemcached-tools php-memcached php-apcu php-gd php-curl php-mbstring php-intl php-gmp php-bcmath php-xml php-bz2 php-zip php-ctype php-dom php-json php-posix zip unzip smbclient python3-certbot-apache
 
 # enable services
 #sudo systemctl enable mariadb && sudo systemctl start mariadb && sudo systemctl status mariadb
