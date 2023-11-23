@@ -5,10 +5,9 @@
 
  Create DB option 1
  
-      export NC_DBUSER = replace_for_DB_user
-      export NC_DBPASS = you_DB_password
-      export NC_DBNAME = you_DB_name
-      export HOSTNAME = you_hostname
+      export NC_DBUSER=replace_for_DB_user
+      export NC_DBPASS=you_DB_password
+      export NC_DBNAME=you_DB_name
 
 Set web Login access credential
       
