@@ -99,7 +99,7 @@ sudo systemctl restart memcached
 sudo systemctl restart php8.2-fpm
 sudo systemctl restart postgresql
 sudo systemctl restart redis-server
-sleep5
+sleep 5
 
 sudo nano /var/www/nextcloud/config/config.php
 
