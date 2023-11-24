@@ -9,13 +9,13 @@
 
 clear
 
-echo "${green}${bold}      DATA SAVED"
+echo "${green}${bold}     CREDENTIALS DATA SAVED"
 sleep 2
 echo "$normal"
-echo "${lightyellow}  setting up to start"
+echo "${lightyellow}      setting up to start"
 echo "$normal"
-echo "${blue}${bold}${blink}      NEXTCLOUD"
+echo "${blue}${bold}${blink}           NEXTCLOUD"
 echo "$normal"
-echo "${lightyellow}     instalation"
+echo "${lightyellow}          instalation"
 
 echo "$normal"
