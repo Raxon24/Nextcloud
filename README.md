@@ -22,7 +22,7 @@ Set web Login access credential
 
 - Install
 
-      sudo wget -O ncpgsql.sh https://raw.githubusercontent.com/Raxon24/Nextcloud/main/ncpgsql.sh && sudo bash ncpgsql.sh
+      sudo wget -O - https://raw.githubusercontent.com/Raxon24/Nextcloud/main/ncpgsql.sh | sh
 ---------------------------------------------------------------------------------------------------------------------------
  - Set Postgesql database user  password replase secret123  for you secret password keep inside sample --> 'youpasswd'
 
