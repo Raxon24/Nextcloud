@@ -19,4 +19,4 @@ sudo bash next.sh
 sleep 10
 sudo apt update
 sudo rm ads.sh svng.sh db.sh next.sh
-sudo wget -O - https://raw.githubusercontent.com/Raxon24/Nextcloud/main/ncpgsql.sh | sh
+#sudo wget -O - https://raw.githubusercontent.com/Raxon24/Nextcloud/main/ncpgsql.sh | sh
