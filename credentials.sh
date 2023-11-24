@@ -8,9 +8,9 @@ sleep 2
 sudo wget https://raw.githubusercontent.com/Raxon24/Nextcloud/main/db.sh
 sleep 2
 sudo wget https://raw.githubusercontent.com/Raxon24/Nextcloud/main/next.sh
-sudo bash ads.sh
-sleep 5
-sudo nano db.sh
+sudo bash ads.sh && sudo nano db.sh
+#sleep 5
+#sudo nano db.sh
 sudo bash svng.sh
 sleep 10
 sudo bash db.sh
