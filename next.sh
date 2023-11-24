@@ -10,8 +10,8 @@
 clear
 
 echo "${green}${bold}     CREDENTIALS DATA SAVED"
-sleep 2
 echo "$normal"
+sleep 2
 echo "${lightyellow}      setting up to start"
 echo "$normal"
 echo "${blue}${bold}${blink}           NEXTCLOUD"
