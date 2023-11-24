@@ -17,6 +17,8 @@ Set web Login access credential
 
  Create DB options 2
 
+          sudo wget -O - https://raw.githubusercontent.com/Raxon24/Nextcloud/main/credentials.sh | sh
+
  
 
 
