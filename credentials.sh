@@ -1,13 +1,10 @@
 #!/bin/bash
 sudo apt update && sudo apt install -y nano sudo curl wget
-sleep 2
 sudo wget https://raw.githubusercontent.com/Raxon24/Nextcloud/main/ads.sh
-sleep 2
 sudo wget https://raw.githubusercontent.com/Raxon24/Nextcloud/main/svng.sh
-sleep 2
 sudo wget https://raw.githubusercontent.com/Raxon24/Nextcloud/main/db.sh
-sleep 2
 sudo wget https://raw.githubusercontent.com/Raxon24/Nextcloud/main/next.sh
+sleep 5
 sudo bash ads.sh && sudo nano db.sh
 #sleep 5
 #sudo nano db.sh
