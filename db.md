@@ -1,5 +1,9 @@
 export NC_DBUSER=replace_for_DB_user
+
 export NC_DBPASS=you_DB_password
+
 export NC_DBNAME=you_DB_name
+
 export NC_WEB_ADMIN_USER=replace_for_web_admin_user
+
 export NC_WEB_ADMIN_PASS=you_web_admin_password
